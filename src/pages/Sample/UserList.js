@@ -1,4 +1,3 @@
-import styles from './UserList.less';
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import router from 'umi/router';
@@ -8,6 +7,7 @@ import { Row, Col, Card, Form, Input, Button, Modal, message, Divider } from 'an
 //先导入原生组件，后导入自定义组件
 import StandardTable from '@/components/StandardTable';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
+import styles from './UserList.less';
 
 const FormItem = Form.Item;
 
@@ -122,7 +122,7 @@ class UserList extends PureComponent {
     },
   ];
 
-  componentDidMount() {
+  componentDidMount () {
     const { dispatch } = this.props;
     dispatch({
       type: 'sampleUser/fetch',
@@ -277,7 +277,7 @@ class UserList extends PureComponent {
   };
 
   //查询页
-  renderQueryForm() {
+  renderQueryForm () {
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -309,7 +309,7 @@ class UserList extends PureComponent {
     );
   }
 
-  render() {
+  render () {
     const { sampleUser: data, loading } = this.props;
     const { selectedRows } = data;
     const { createFormVisible } = data;

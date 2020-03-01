@@ -1,4 +1,3 @@
-import styles from './BlogList.less';
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import router from 'umi/router';
@@ -8,6 +7,7 @@ import { Row, Col, Card, Form, Input, Button, Modal, message, Divider } from 'an
 //先导入原生组件，后导入自定义组件
 import StandardTable from '@/components/StandardTable';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
+import styles from './BlogList.less';
 
 const FormItem = Form.Item;
 
@@ -95,7 +95,7 @@ class BlogList extends PureComponent {
     },
   ];
 
-  componentDidMount() {
+  componentDidMount () {
     const { dispatch } = this.props;
     dispatch({
       type: 'blog/fetch',
@@ -243,7 +243,7 @@ class BlogList extends PureComponent {
   };
 
   //查询页
-  renderQueryForm() {
+  renderQueryForm () {
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -275,7 +275,7 @@ class BlogList extends PureComponent {
     );
   }
 
-  render() {
+  render () {
     const { blog: data, loading } = this.props;
     const { selectedRows } = data;
     const { createFormVisible } = data;
